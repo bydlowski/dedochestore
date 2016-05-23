@@ -13,7 +13,21 @@
 
   <body>
 
-    <%= yield %>
+    <%= render "layouts/alerts" %>
+
+    <%= render "layouts/header" %>
+
+    <div id="main-content" class="row full-min-height">
+      <%= yield %>
+    </div>
+
+    <footer class="row">
+      <div class="large-12 columns">
+        <hr> <p>© Dedoxis 2016</p>
+      </div>
+    </footer>
+
+    <%= javascript_include_tag "application" %>
 
   </body>
 </html>
