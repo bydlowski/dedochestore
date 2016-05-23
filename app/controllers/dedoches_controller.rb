@@ -1,5 +1,4 @@
 class DedochesController < ApplicationController
-  before_action :set_dedoch, only: [:show, :edit, :update, :destroy]
 
   # GET /dedoches
   # GET /dedoches.json
@@ -12,6 +11,7 @@ class DedochesController < ApplicationController
   def show
     @dedoche = Dedoche.find(params[:id])
     @cart_action = @dedoche.cart_action current_user.try :id
+    puts @cart_action
   end
 
 end
