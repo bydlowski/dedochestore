@@ -15,11 +15,18 @@
       <section class="top-bar-section">
         <ul class="right">
           <%if signed_in?%>
+            <li>
+              <%= link_to cart_path do%>
+                <i class="fi-shopping-cart"></i>
+                My Cart
+                (<span class="cart-count"><%=current_user.cart_count%></span>)
+              <%end%>
+            </li>
             <li><%=link_to current_user.email, edit_user_registration_path%></li>
-            <li><%=link_to "Logout", destroy_user_session_path, method: :delete%></li>
+            <li><%=link_to "Sair", destroy_user_session_path, method: :delete%></li>
           <%else%>
-            <li><%=link_to "Register", new_user_registration_path%></li>
-            <li><%=link_to "Login", new_user_session_path%></li>
+            <li><%=link_to "Criar conta", new_user_registration_path%></li>
+            <li><%=link_to "Entrar", new_user_session_path%></li>
           <%end%>
         </ul>
       </section>

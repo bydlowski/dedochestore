@@ -12,4 +12,11 @@
   <p><%= @dedoche.description %></p>
 </div>
 
+<%if signed_in?%>
+  <%=link_to "", class: "button", data: {target: @cart_action, addUrl: add_to_cart_path(@dedoche), removeUrl: remove_from_cart_path(@dedoche)} do%>
+    <i class="fi-shopping-cart"></i>
+    <span><%=@cart_action%></span> Cart
+  <%end%>
+<%end%>
+
 <%= link_to 'Back', dedoches_path %>
