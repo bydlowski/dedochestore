@@ -1,5 +1,5 @@
 class Dedoche < ActiveRecord::Base
-  has_many :purchases
+  has_many :purchases, through: :dedoche_id
   has_many :buyers, through: :purchases
   #has_many :purchases, foreign_key: :dedoche_id
 

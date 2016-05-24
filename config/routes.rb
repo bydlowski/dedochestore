@@ -5,7 +5,9 @@ Rails.application.routes.draw do
 
   devise_for :users, path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register' }
   resources :transactions, only: [:new, :create]
-  resources :dedoches, only: [:show, :index]
+  #resources :dedoches, only: [:show, :index]
+  get 'dedoches/:id' => 'dedoches#show', as: 'dedoche'
+  get '/' => 'dedoches#index'
   resource :cart, only: [:show] do
     put 'add/:dedoche_id', to: 'carts#add', as: :add_to
     put 'remove/:dedoche_id', to: 'carts#remove', as: :remove_from

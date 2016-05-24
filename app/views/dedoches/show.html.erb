@@ -8,7 +8,9 @@
     (<%= @dedoche.stock %>)
   </h3>
   
-  <p class="label movie-label radius mb1">$ <%= @dedoche.price %></p>
+  <p class="label movie-label radius mb1">
+    <%= (current_user && current_user.purchase?(@dedoche)) ? "Purchased" : "$#{@movie.price}" %>
+  </p>
 
   <p><%= @dedoche.description %></p>
 </div>

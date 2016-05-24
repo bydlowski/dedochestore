@@ -4,7 +4,7 @@
     <% @dedoches.each do |dedoche| %>
       <li class="large-3 medium-4 small-12 column">
         <div class="movie-card padly">
-          <%= link_to dedoche, class: "poster" do %>
+          <%= link_to dedoche_path(dedoche.id), class: "poster" do %>
             <%= image_tag dedoche.image %>
           <% end %>
           <div class="movie-info ell glassy-bg padmy padlx">
