@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
+  get 'transactions/new'
+
   get 'carts/show'
 
   devise_for :users, path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register' }
+  resources :transactions, only: [:new, :create]
   resources :dedoches, only: [:show, :index]
   resource :cart, only: [:show] do
     put 'add/:dedoche_id', to: 'carts#add', as: :add_to
